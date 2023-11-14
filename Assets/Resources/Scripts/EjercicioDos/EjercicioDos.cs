@@ -29,10 +29,21 @@ public class EjercicioDos : MonoBehaviour
             Debug.Log(hit.Length);
         //}
 
-       /* TODO 2: Investigar qué hace la función RaycastAll, y comprobar que funciona, recorriendo su resultado */
-       /* TODO 3: Añadir uno de los objetos a la capa No Raycast, y asignar la mascara de bits de todos menos esa */
-       /* Todo 4: Hacer que, de los objetos identificados, aquellos que estén en posiciones pares de la lista acaben de color
-        * azul, y los que estén en posiciones impares, de color rojo */
+        foreach(RaycastHit singleHit in hit)
+        {
+            Debug.Log(singleHit.collider.name + " - nombre");
+            Destroy(singleHit.collider.gameObject);
+        }
+
+        //for( int i = 0; i < hit.Length; i++)
+        //{
+            //Destroy(hit[i].collider.gameObject);
+        //}
+
+        /* TODO 2: Investigar qué hace la función RaycastAll, y comprobar que funciona, recorriendo su resultado */
+        /* TODO 3: Añadir uno de los objetos a la capa No Raycast, y asignar la mascara de bits de todos menos esa */
+        /* Todo 4: Hacer que, de los objetos identificados, aquellos que estén en posiciones pares de la lista acaben de color
+         * azul, y los que estén en posiciones impares, de color rojo */
     }
 
     private void OnDrawGizmos()
