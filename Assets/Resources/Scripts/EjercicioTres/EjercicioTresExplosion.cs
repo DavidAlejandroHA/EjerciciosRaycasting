@@ -15,10 +15,24 @@ public class EjercicioTresExplosion : MonoBehaviour
         Collider[] listaChoques;
 
         /* TODO 1: LLamar al método OverlapShpere */
+        int mascara = 1 << 6;
+        listaChoques = Physics.OverlapSphere(transform.position, radio, mascara);
+
+       // Debug.Log(listaChoques.Length);
+
+
         /* TODO 2: Recorrer la lista de choques */
         /* TODO 3: Aplicar una fuerza de explosion usando el método AddExplosionForce */
+        float fuerzaExplosion = 2.0f;
 
+        foreach (Collider choque in listaChoques)
+        {
+            //Debug.Log(choque.gameObject.name);
+            choque.gameObject.GetComponent<Rigidbody>().AddExplosionForce(fuerzaExplosion, transform.position, radio);
+        }
 
+        
+        //listaChoques.
 
 
 
@@ -39,7 +53,7 @@ public class EjercicioTresExplosion : MonoBehaviour
         // -----------------> Superficie
         // Para calcular el vector normal del choque, usa las funciones ClosestPointOnBounds, para asignar el punto de la esfera más cercano al choque.
         // Con este vector, restale el centro de la esfera, y normalizalo. Ahí tienes el vector normal!
-       
+
 
     }
 
